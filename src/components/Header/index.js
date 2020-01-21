@@ -2,11 +2,12 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react';
 import { HashLink } from 'react-router-hash-link';
-
-import { Container, NavItem } from './styles';
+import { FaBars } from 'react-icons/fa';
+import { Container, NavItem, Nav } from './styles';
 import Logo from '../../images/logosobral.png';
 
 export default function Header() {
+  const [menu, setMenu] = useState(false);
   const [navColor] = useState({
     color: 'white',
     border: 'none',
@@ -18,6 +19,7 @@ export default function Header() {
     { item: 'CONVÊNIOS', selected: false, anchor: '/#scroll-convenios' },
     { item: 'EXAMES', selected: false, anchor: '/#exames' },
     { item: 'UNIDADES', selected: false, anchor: '/#unidades' },
+    { item: 'CONTATO', selected: false, anchor: '/contact#contact' },
     { item: 'RESULTADOS', selected: false, anchor: '/results#results' },
   ]);
 
@@ -31,6 +33,12 @@ export default function Header() {
           : { ...i, selected: false }
       )
     );
+
+    setMenu(!menu);
+  }
+
+  function toggleMenu() {
+    setMenu(!menu);
   }
 
   return (
@@ -39,34 +47,41 @@ export default function Header() {
       border={navColor.border}
       shadow={navColor.shadow}
     >
-      <nav>
-        <HashLink
-          smooth
-          to="/#home"
-          scroll={el => el.scrollIntoView({ behavior: 'smooth', block: 'end' })}
-        >
-          <img id="logo" src={Logo} alt="Logo" />
-        </HashLink>
-        <div>
-          {navItens.map(item => (
-            <HashLink
-              smooth
-              to={item.anchor}
-              scroll={el =>
-                el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-              }
+      <HashLink
+        smooth
+        to="/#home"
+        scroll={el => el.scrollIntoView({ behavior: 'smooth', block: 'end' })}
+      >
+        <img id="logo" src={Logo} alt="Logo" />
+      </HashLink>
+      <div className="icon">
+        <FaBars
+          size={24}
+          color="#a20000"
+          cursor="pointer"
+          onClick={toggleMenu}
+          z-index={2}
+        />
+      </div>
+      <Nav menu={menu}>
+        {navItens.map(item => (
+          <HashLink
+            smooth
+            to={item.anchor}
+            scroll={el =>
+              el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }
+          >
+            <NavItem
+              key={item.item}
+              selected={item.selected}
+              onClick={() => toggleSelected(item)}
             >
-              <NavItem
-                key={item.item}
-                selected={item.selected}
-                onClick={() => toggleSelected(item)}
-              >
-                {item.item}
-              </NavItem>
-            </HashLink>
-          ))}
-        </div>
-      </nav>
+              {item.item}
+            </NavItem>
+          </HashLink>
+        ))}
+      </Nav>
     </Container>
   );
 }

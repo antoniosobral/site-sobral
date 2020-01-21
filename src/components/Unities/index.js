@@ -34,9 +34,6 @@ export default function Convenios() {
           <h1>UNIDADES</h1>
           {unidades.map(unidade => (
             <Filial>
-              <div className="map">
-                <iframe src={unidade.googleMaps} title={unidade.nome} />
-              </div>
               <div className="infos">
                 <h3>{unidade.nome}</h3>
                 <p className="endereco">{unidade.endereco}</p>
@@ -51,6 +48,9 @@ export default function Convenios() {
                   {' '}
                   <strong> Coleta:</strong> {unidade.coleta}
                 </span>
+              </div>
+              <div className="map">
+                <iframe src={unidade.googleMaps} title={unidade.nome} />
               </div>
             </Filial>
           ))}

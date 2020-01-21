@@ -1,12 +1,16 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { slideInLeft } from 'react-animations';
+
+const slideIn = keyframes`${slideInLeft}`;
 
 export const Container = styled.div`
   display: flex;
   justify-content: center;
 `;
 export const Content = styled.div`
-  width: 1120px;
-  margin: 128px 0px;
+  width: 100%;
+  max-width: 1120px;
+  margin: 80px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,19 +20,28 @@ export const Content = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+
+    @media (max-width: 660px) {
+      justify-content: center;
+    }
   }
   button {
-    font-size: 24px;
+    animation: ${slideIn} 2s;
+    width: 200px;
+    height: 70px;
+    border: 3px solid #484646;
+    background-color: rgb(0, 0, 0, 0);
+    transition: background 0.2s;
+    font-size: 20px;
+    box-shadow: 1px 3px 6px #707070;
+
     font-weight: bold;
     color: #a20000;
-    width: 240px;
-    border: 3px solid #484646;
 
     &:hover {
-      background: #a20000;
+      background-color: #a20000;
+      border: none;
       color: #ffffff;
-      border: 3px solid #ffffff;
-      transition: background 0.2s;
     }
   }
 `;
@@ -56,7 +69,7 @@ export const ExamContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 200px;
+  height: 4rem;
   width: 240px;
   margin: 68px 40px;
 
@@ -72,5 +85,11 @@ export const ExamContent = styled.div`
   span {
     margin: 24px 0px;
     width: 100%;
+  }
+
+  @media (max-width: 660px) {
+    width: calc(50%-4rem);
+    max-width: 240px;
+    margin: 68px 0;
   }
 `;

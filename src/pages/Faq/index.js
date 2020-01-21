@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { removeHash } from 'react-scrollable-anchor';
 
 import Header from '../../components/Header';
-import Footer from '../../components/Footer';
 import { Container, Content, Questions, List } from './styles';
 
 export default function Faq() {
@@ -63,12 +62,6 @@ export default function Faq() {
         'Pacientes com febre podem colher sangue, pois a intenção é verificar se existe alguma infecção. Porém, em alguns casos, o estado em que o paciente se encontra pode provocar alterações nos exames solicitados. Portanto, na presença de febre, gripe, resfriado ou outro estado, consulte o médico antes para que o mesmo veja a importância da realização do exame.',
       visible: false,
     },
-    {
-      text: 'Coleta de Sangue X Hematomas',
-      answer:
-        'Pode ocorrer, depois da coleta, o aparecimento de hematoma no local da punção, que seria o extravasamento de sangue para fora da veia. Isso pode acontecer em determinadas situações, tais como: veias finas e delicadas com muita pressão; falta de compressão no local da punção; uso de alguma medicação que altere a coagulação do sangue.',
-      visible: false,
-    },
   ]);
 
   function toggleVisible(index) {
@@ -119,7 +112,6 @@ export default function Faq() {
             </ul>
           </div>
         </Content>
-        <Footer />
       </Container>
     </>
   );

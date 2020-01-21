@@ -6,16 +6,18 @@ export const Container = styled.div`
   align-items: center;
   background: #757575;
   width: 100%;
-
   margin-top: auto;
 `;
 export const Content = styled.div`
-  width: 1120px;
+  width: 100%;
+  max-width: 1120px;
   margin: 64px 0px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-left: 2rem;
 
+  background: #757575;
   div {
     h4 {
       font-size: 24px;

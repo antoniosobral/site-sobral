@@ -39,6 +39,40 @@ export const Content = styled.div`
         margin: 16px;
         list-style-type: square;
       }
+
+      @media (max-width: 1020px) {
+        width: calc(50% - 1rem);
+        margin: 1rem;
+
+        li {
+          margin-left: 3rem;
+        }
+      }
+
+      @media (max-width: 720px) {
+        height: 360px;
+        padding-left: 1rem;
+        li {
+          font-size: 1rem;
+          margin: 1rem;
+        }
+      }
+    }
+    @media (max-width: 720px) {
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+    }
+  }
+
+  @media (max-width: 720px) {
+    margin: 4rem 1rem;
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 64px;
     }
   }
 `;

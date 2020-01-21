@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 
 import { removeHash } from 'react-scrollable-anchor';
 import { Container, Content } from './styles';
-import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 
 export default function Results() {
@@ -29,7 +28,6 @@ export default function Results() {
             <button type="submit">Entrar</button>
           </form>
         </Content>
-        <Footer />
       </Container>
     </>
   );

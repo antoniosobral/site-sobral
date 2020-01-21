@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  width: 100%;
   height: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,8 +11,8 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   height: 100%;
-  margin: 320px 0;
-  flex: 1;
+  margin: 320px 1rem;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,7 +22,7 @@ export const Content = styled.div`
   h1 {
     color: #a20000;
     font-size: 56px;
-    margin-bottom: 48px;
+    margin: 0 auto 48px;
   }
 
   form {
@@ -55,6 +57,24 @@ export const Content = styled.div`
       &:hover {
         background: #fc2019;
       }
+    }
+  }
+
+  @media (max-width: 720px) {
+    h1 {
+      font-size: 3rem;
+    }
+  }
+  @media (max-width: 620px) {
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 36px;
+    }
+  }
+  @media (max-width: 500px) {
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
   }
 `;

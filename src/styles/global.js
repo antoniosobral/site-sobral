@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
   * {
@@ -14,9 +15,7 @@ export default createGlobalStyle`
   }
 
   html {
-  overflow-y: scroll;
 
-}
   }
 
   body {

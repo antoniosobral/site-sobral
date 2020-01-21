@@ -12,7 +12,7 @@ export default function QuemSomos() {
     {
       title: 'VISÃO',
       text:
-        'Ser referênria em excelência de exames laboratoriais de forma que ela seja a principal motivadora para nossa trajetória',
+        'Ser referência em excelência de exames laboratoriais de forma que ela seja a principal motivadora para nossa trajetória',
       color: '#BDBDBD',
       top: '160px',
       right: '40px',
@@ -37,11 +37,11 @@ export default function QuemSomos() {
             <br />
             <br />
             O Laboratório Sobral participa dos Programas de Controles Externos
-            de Qualidade, desenvolvidos pela SBAC, afim de garantir a qualidade
+            de Qualidade, desenvolvidos pela SBAC, afim de garantir a excelência
             dos exames e também de controles internos.
             <br />
             <br />
-            Nossa política de qualidade: Oferecer serviços de diagnóstico
+            Nossa política de qualidade: oferecer serviços de diagnóstico
             laboratorial,comprometido com o sistema de gestão da qualidade e com
             a melhoria contínua. Buscando atender as necessidades dos nossos
             clientes e superando suas expectativas.

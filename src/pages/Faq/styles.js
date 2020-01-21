@@ -77,7 +77,7 @@ export const Questions = styled.div`
 
 export const List = styled.li`
   li {
-    margin-top: 20px;
+    margin-top: 30px;
     padding-bottom: 5px;
     border-bottom: ${props =>
       props.visible ? '1px solid transparent' : '1px solid #e0e0e0'};

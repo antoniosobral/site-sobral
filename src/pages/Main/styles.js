@@ -7,6 +7,7 @@ const slideIn = keyframes`${slideInLeft}`;
 export const Background = styled.div`
   overflow: hidden;
   height: 100%;
+  width: 100%;
 
   #background {
     position: absolute;
