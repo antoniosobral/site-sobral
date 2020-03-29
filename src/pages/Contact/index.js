@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Input, Select } from '@rocketseat/unform';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 import Lottie from 'react-lottie';
+import { removeHash } from 'react-scrollable-anchor';
+import emailjs from 'emailjs-com';
 import * as Load from '../../images/icons/loading.json';
 
 import { Container, Content } from './styles';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import api from '../../services/api';
 
 const defaultOptions = {
   loop: true,
@@ -31,6 +32,10 @@ const schema = Yup.object().shape({
 export default function Contact() {
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    removeHash();
+  });
+
   const options = [
     { id: 'DÚVIDA', title: 'Dúvidas' },
     { id: 'ELOGIO', title: 'Elogios' },
@@ -38,9 +43,28 @@ export default function Contact() {
     { id: 'RECLAMAÇÃO', title: 'Reclamações' },
   ];
 
-  async function handleSubmit(data, { resetForm }) {
+  function handleSubmit(data, { resetForm }) {
     setLoading(!loading);
-    await api.post('/mail', data);
+
+    let destination = '';
+
+    if (data.subject === 'DÚVIDA') {
+      // sac@labsobral.com.br - antonioosobral@gmail.com
+
+      destination = 'user_tRc5sZZRnjZThHUaVPyuS';
+    } else {
+      // direcao@labsobral.com.br - antoniosobral@poli.ufrj.br
+      destination = 'user_eVRgJ3k5Rr29MtGWkMCqG';
+    }
+    emailjs.sendForm('Sobral', 'sac', '#myForm', destination).then(
+      function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+      },
+      function(error) {
+        console.log('FAILED...', error);
+      }
+    );
+
     toast.success('Obrigado pelo seu contato!');
     setLoading(false);
 
@@ -64,6 +88,7 @@ export default function Contact() {
             action="/mail"
             mathod="post"
             onSubmit={handleSubmit}
+            id="myForm"
           >
             <Input name="name" type="text" placeholder="Nome" />
             <Input name="tel" type="tel" placeholder="Telefone" />

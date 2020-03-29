@@ -10,6 +10,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-bottom: 20px;
 `;
 
 export const Content = styled.div`
@@ -60,7 +61,7 @@ export const Content = styled.div`
 
     .textarea {
       resize: none;
-      height: 250px;
+      height: 200px;
       font-size: 16px;
       border: none;
       border-radius: 4px;
